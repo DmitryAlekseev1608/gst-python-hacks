@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = -Dgst_buffer_info_meta_EXPORTS
 
-C_INCLUDES = -I/home/oem/Desktop/gst-python-hacks/gst-metadata/include
+C_INCLUDES = -I"/home/oem/Рабочий стол/gst-python-hacks/gst-metadata/include"
 
 C_FLAGS = -pthread -I/usr/include/gstreamer-1.0 -I/usr/include/x86_64-linux-gnu -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -O3 -DNDEBUG -fPIC -pthread -I/usr/include/gstreamer-1.0 -I/usr/include/x86_64-linux-gnu -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
 

@@ -27,12 +27,15 @@ typedef enum {
 typedef struct _GstBufferInfoMeta  GstBufferInfoMeta;
 typedef struct _GstBufferInfo      GstBufferInfo    ;
 
-struct _GstBufferInfo {
-    void* conf;
-    void* cls;   
-    void* xyxy;  
-};
 
+struct _GstBufferInfo {
+    gchar* cls;
+    gfloat* conf;
+    gint* x1;
+    gint* x2;
+    gint* y1;
+    gint* y2;            
+};
 
 struct _GstBufferInfoMeta {
 
