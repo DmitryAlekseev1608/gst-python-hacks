@@ -28,8 +28,9 @@ typedef struct _GstBufferInfoMeta  GstBufferInfoMeta;
 typedef struct _GstBufferInfo      GstBufferInfo    ;
 
 struct _GstBufferInfo {
-    gchar* x1;
-    gchar* x2;    
+    void* conf;
+    void* cls;   
+    void* xyxy;  
 };
 
 

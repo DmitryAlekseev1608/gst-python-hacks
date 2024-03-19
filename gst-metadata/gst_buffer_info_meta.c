@@ -11,8 +11,9 @@ static gboolean gst_buffer_info_meta_transform(GstBuffer *transbuf, GstMeta *met
 
 GstBufferInfo* empty(){
     static GstBufferInfo info;
-    info.x1 = "";
-    info.x2 = "";    
+    info.conf = "";
+    info.cls = "";
+    info.xyxy = "";
     return &info;
 }
      
@@ -56,8 +57,9 @@ const GstMetaInfo *gst_buffer_info_meta_get_info(void)
 static gboolean gst_buffer_info_meta_init(GstMeta *meta, gpointer params, GstBuffer *buffer)
 {
     GstBufferInfoMeta *gst_buffer_info_meta = (GstBufferInfoMeta*)meta;     
-    gst_buffer_info_meta->info.x1 = "";
-    gst_buffer_info_meta->info.x2 = "";
+    gst_buffer_info_meta->info.conf = "";
+    gst_buffer_info_meta->info.cls = "";
+    gst_buffer_info_meta->info.xyxy = "";
     return TRUE;
 }
  
@@ -102,16 +104,22 @@ GstBufferInfoMeta* gst_buffer_add_buffer_info_meta( GstBuffer *buffer
     gst_buffer_info_meta = (GstBufferInfoMeta *) gst_buffer_add_meta (buffer, GST_BUFFER_INFO_META_INFO, NULL);
 
     // copy fields to buffer's meta
-    if (buffer_info->x1 != NULL)
+    if (buffer_info->conf != NULL)
     {
-        gst_buffer_info_meta->info.x1 = malloc(strlen(buffer_info->x1) + 1);
-        strcpy(gst_buffer_info_meta->info.x1, buffer_info->x1);
+        gst_buffer_info_meta->info.cls = malloc(strlen(buffer_info->conf) + 1);
+        strcpy(gst_buffer_info_meta->info.conf, buffer_info->conf);
     }
 
-    if (buffer_info->x2 != NULL)
+    if (buffer_info->cls != NULL)
     {
-        gst_buffer_info_meta->info.x2 = malloc(strlen(buffer_info->x2) + 1);
-        strcpy(gst_buffer_info_meta->info.x2, buffer_info->x2);
+        gst_buffer_info_meta->info.cls = malloc(strlen(buffer_info->cls) + 1);
+        strcpy(gst_buffer_info_meta->info.cls, buffer_info->cls);
+    }
+
+    if (buffer_info->xyxy != NULL)
+    {
+        gst_buffer_info_meta->info.xyxy = malloc(strlen(buffer_info->xyxy) + 1);
+        strcpy(gst_buffer_info_meta->info.xyxy, buffer_info->xyxy);
     }
 
     return gst_buffer_info_meta;
