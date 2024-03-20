@@ -1,7 +1,7 @@
 CMakeFiles/gst_buffer_info_meta.dir/gst_buffer_info_meta.c.o: \
- /home/oem/Рабочий\ стол/gst-python-hacks/gst-metadata/gst_buffer_info_meta.c \
+ /home/oem/Desktop/gst-python-hacks/gst-metadata/gst_buffer_info_meta.c \
  /usr/include/stdc-predef.h \
- /home/oem/Рабочий\ стол/gst-python-hacks/gst-metadata/gst_buffer_info_meta.h \
+ /home/oem/Desktop/gst-python-hacks/gst-metadata/gst_buffer_info_meta.h \
  /usr/include/gstreamer-1.0/gst/gst.h /usr/include/glib-2.0/glib.h \
  /usr/include/glib-2.0/glib/galloca.h /usr/include/glib-2.0/glib/gtypes.h \
  /usr/lib/x86_64-linux-gnu/glib-2.0/include/glibconfig.h \

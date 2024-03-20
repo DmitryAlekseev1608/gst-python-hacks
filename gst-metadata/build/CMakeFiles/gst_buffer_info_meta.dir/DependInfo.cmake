@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/oem/Рабочий стол/gst-python-hacks/gst-metadata/gst_buffer_info_meta.c" "CMakeFiles/gst_buffer_info_meta.dir/gst_buffer_info_meta.c.o" "gcc" "CMakeFiles/gst_buffer_info_meta.dir/gst_buffer_info_meta.c.o.d"
+  "/home/oem/Desktop/gst-python-hacks/gst-metadata/gst_buffer_info_meta.c" "CMakeFiles/gst_buffer_info_meta.dir/gst_buffer_info_meta.c.o" "gcc" "CMakeFiles/gst_buffer_info_meta.dir/gst_buffer_info_meta.c.o.d"
   )
 
 # Targets to which this target links.

@@ -29,6 +29,8 @@ typedef struct _GstBufferInfo      GstBufferInfo    ;
 
 
 struct _GstBufferInfo {
+    gchar* time;
+    gchar* cam;
     gchar* cls;
     gfloat* conf;
     gint* x1;

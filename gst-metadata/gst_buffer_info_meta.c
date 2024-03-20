@@ -11,6 +11,8 @@ static gboolean gst_buffer_info_meta_transform(GstBuffer *transbuf, GstMeta *met
 
 GstBufferInfo* empty(){
     static GstBufferInfo info;
+    info.time = "";
+    info.cam = "";
     info.cls = "";
     info.conf = "";
     info.x1 = "";
@@ -59,7 +61,9 @@ const GstMetaInfo *gst_buffer_info_meta_get_info(void)
 // 4-th field in GstMetaInfo
 static gboolean gst_buffer_info_meta_init(GstMeta *meta, gpointer params, GstBuffer *buffer)
 {
-    GstBufferInfoMeta *gst_buffer_info_meta = (GstBufferInfoMeta*)meta;     
+    GstBufferInfoMeta *gst_buffer_info_meta = (GstBufferInfoMeta*)meta;
+    gst_buffer_info_meta->info.time = "";    
+    gst_buffer_info_meta->info.cam = "";
     gst_buffer_info_meta->info.cls = "";
     gst_buffer_info_meta->info.conf = "";
     gst_buffer_info_meta->info.x1 = "";
@@ -110,6 +114,18 @@ GstBufferInfoMeta* gst_buffer_add_buffer_info_meta( GstBuffer *buffer
     gst_buffer_info_meta = (GstBufferInfoMeta *) gst_buffer_add_meta (buffer, GST_BUFFER_INFO_META_INFO, NULL);
 
     // copy fields to buffer's meta
+    if (buffer_info->time != NULL)
+    {
+        gst_buffer_info_meta->info.time = malloc(strlen(buffer_info->time) + 1);
+        strcpy(gst_buffer_info_meta->info.time, buffer_info->time);
+    }
+
+    if (buffer_info->cam != NULL)
+    {
+        gst_buffer_info_meta->info.cam = malloc(strlen(buffer_info->cam) + 1);
+        strcpy(gst_buffer_info_meta->info.cam, buffer_info->cam);
+    }
+
     if (buffer_info->cls != NULL)
     {
         gst_buffer_info_meta->info.cls = malloc(strlen(buffer_info->cls) + 1);
