@@ -29,14 +29,7 @@ typedef struct _GstBufferInfo      GstBufferInfo    ;
 
 
 struct _GstBufferInfo {
-    gchar* time;
-    gchar* cam;
-    gchar* cls;
-    gfloat* conf;
-    gint* x1;
-    gint* x2;
-    gint* y1;
-    gint* y2;            
+    gchar* message;         
 };
 
 struct _GstBufferInfoMeta {
