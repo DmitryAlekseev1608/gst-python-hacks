@@ -11,7 +11,7 @@ static gboolean gst_buffer_info_meta_transform(GstBuffer *transbuf, GstMeta *met
 
 GstBufferInfo* empty(){
     static GstBufferInfo info;
-    info.message = "";
+    info.description = "";
     return &info;
 }
      
@@ -54,8 +54,8 @@ const GstMetaInfo *gst_buffer_info_meta_get_info(void)
 // 4-th field in GstMetaInfo
 static gboolean gst_buffer_info_meta_init(GstMeta *meta, gpointer params, GstBuffer *buffer)
 {
-    GstBufferInfoMeta *gst_buffer_info_meta = (GstBufferInfoMeta*)meta;
-    gst_buffer_info_meta->info.message = "";    
+    GstBufferInfoMeta *gst_buffer_info_meta = (GstBufferInfoMeta*)meta;     
+    gst_buffer_info_meta->info.description = "";
     return TRUE;
 }
  
@@ -100,14 +100,15 @@ GstBufferInfoMeta* gst_buffer_add_buffer_info_meta( GstBuffer *buffer
     gst_buffer_info_meta = (GstBufferInfoMeta *) gst_buffer_add_meta (buffer, GST_BUFFER_INFO_META_INFO, NULL);
 
     // copy fields to buffer's meta
-    if (buffer_info->message != NULL)
+    if (buffer_info->description != NULL)
     {
-        gst_buffer_info_meta->info.message = malloc(strlen(buffer_info->message) + 1);
-        strcpy(gst_buffer_info_meta->info.message, buffer_info->message);
+        gst_buffer_info_meta->info.description = malloc(strlen(buffer_info->description) + 1);
+        strcpy(gst_buffer_info_meta->info.description, buffer_info->description);
     }
 
     return gst_buffer_info_meta;
 }
+
 
 // Removes metadata (GstBufferInfo) from buffer
 gboolean gst_buffer_remove_buffer_info_meta(GstBuffer *buffer)
